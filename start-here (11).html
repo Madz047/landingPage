@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a1826">
+<title>Madelara Systems: Start Here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:dark;
+    --navy-deep:#0a1826;
+    --navy-mid:#12293e;
+    --navy-panel:#173751;
+    --teal:#31c9b6;
+    --teal-soft:#9fe8dd;
+    --text:#eaf1f2;
+    --muted:#8ea6b4;
+    --hair:rgba(159,232,221,0.14);
+    --radius-card: 4px;
+    --max-w: 860px;
+  }
+  *{box-sizing:border-box;}
+  html{
+    scroll-behavior:smooth;
+    background:var(--navy-deep);
+    min-height:100%;
+  }
+  body{
+    margin:0;
+    background:var(--navy-deep);
+    color:var(--text);
+    font-family:'Inter', system-ui, sans-serif;
+    font-size:15px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    min-height:100dvh;
+  }
+  h1,h2,h3{
+    font-family:'Sora', system-ui, sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  ul{margin:0; padding:0;}
+  .wrap{
+    width:min(100% - 40px, var(--max-w));
+    margin-inline:auto;
+  }
+  @media (max-width:700px){
+    .wrap{
+      width:min(100% - 28px, var(--max-w));
+    }
+  }
+
+  /* Header */
+  header{
+    padding:20px 0;
+    border-bottom:1px solid var(--hair);
+  }
+  header .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand img{
+    width:36px;
+    height:36px;
+    display:block;
+  }
+  .brand-name{
+    font-family:'Sora', sans-serif;
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:-0.01em;
+  }
+  .brand-name span{color:var(--teal);}
+  .header-link{
+    font-size:0.95rem;
+    color:var(--muted);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+  }
+  .header-link:hover{color:var(--teal-soft); border-bottom-color:var(--teal-soft);}
+  .header-link:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+
+  /* Hero */
+  .hero{
+    padding:64px 0 48px;
+  }
+  .hero h1{
+    font-size:clamp(34px, 4.5vw, 48px);
+    font-weight:600;
+    line-height:1.1;
+    max-width:14ch;
+    color:var(--text);
+  }
+  .hero p{
+    margin-top:18px;
+    max-width:52ch;
+    color:var(--muted);
+    font-size:1.05rem;
+    line-height:1.65;
+  }
+  .hero-rule{
+    margin-top:28px;
+    height:2px;
+    width:64px;
+    background:linear-gradient(90deg, var(--teal), var(--teal-soft));
+    border-radius:2px;
+  }
+  .hero-ctas{
+    margin-top:32px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+  }
+  .hero-cta-primary{
+    text-decoration:none;
+    font-size:1rem;
+    font-weight:600;
+    padding:14px 28px;
+    border-radius:4px;
+    background:var(--teal);
+    color:var(--navy-deep);
+    transition:background 0.15s;
+  }
+  .hero-cta-primary:hover{background:var(--teal-soft);}
+  .hero-cta-primary:active{background:var(--teal);}
+  .hero-cta-primary:focus-visible{outline:2px solid var(--teal-soft); outline-offset:3px;}
+  .hero-cta-secondary{
+    text-decoration:underline;
+    text-underline-offset:3px;
+    font-size:0.92rem;
+    color:var(--muted);
+  }
+  .hero-cta-secondary:hover{color:var(--teal-soft);}
+  .hero-cta-secondary:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+
+  /* "You don't need everything" callout */
+  .no-need-line{
+    padding:8px 0 4px;
+    color:var(--teal-soft);
+    font-family:'Sora', sans-serif;
+    font-weight:500;
+    font-size:1.05rem;
+  }
+  .no-need-line .wrap{
+    max-width:48ch;
+  }
+
+  /* Quiz */
+  .quiz{
+    padding:8px 0 8px;
+  }
+  .quiz-card{
+    background:var(--navy-panel);
+    border-radius:8px;
+    padding:32px;
+    border:1px solid var(--hair);
+  }
+  .quiz-progress{
+    font-size:0.82rem;
+    color:var(--muted);
+    margin-bottom:18px;
+    letter-spacing:0.02em;
+  }
+  .quiz-question{
+    font-family:'Sora', sans-serif;
+    font-weight:600;
+    font-size:1.3rem;
+    line-height:1.35;
+    color:var(--text);
+    margin-bottom:22px;
+  }
+  .quiz-options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .quiz-option{
+    text-align:left;
+    background:var(--navy-mid);
+    color:var(--text);
+    border:1px solid var(--hair);
+    border-radius:5px;
+    padding:14px 18px;
+    font-family:'Inter', sans-serif;
+    font-size:0.98rem;
+    line-height:1.4;
+    cursor:pointer;
+    transition:border-color 0.15s, background 0.15s;
+    width:100%;
+  }
+  .quiz-option:hover{
+    border-color:var(--teal);
+    background:rgba(49,201,182,0.08);
+  }
+  .quiz-option:active{
+    background:rgba(49,201,182,0.16);
+  }
+  .quiz-option:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:2px;
+  }
+  .quiz-nav{
+    margin-top:22px;
+  }
+  .quiz-back{
+    background:none;
+    border:none;
+    color:var(--muted);
+    font-size:0.9rem;
+    cursor:pointer;
+    padding:0;
+    text-decoration:underline;
+  }
+  .quiz-back:hover{color:var(--teal-soft);}
+  .quiz-back:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+
+  /* Result */
+  .result-eyebrow{
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.06em;
+    color:var(--teal);
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .result-name{
+    font-family:'Sora', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    color:var(--text);
+    margin-bottom:8px;
+  }
+  .result-tagline{
+    color:var(--teal-soft);
+    font-size:1rem;
+    margin-bottom:22px;
+    line-height:1.5;
+  }
+  .result-block{
+    margin-bottom:22px;
+  }
+  .result-block h4{
+    font-family:'Sora', sans-serif;
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:10px;
+  }
+  .result-why{
+    color:var(--text);
+    font-size:0.96rem;
+    line-height:1.6;
+  }
+  .result-outcomes{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .result-outcomes li{
+    color:var(--text);
+    font-size:0.95rem;
+    padding-left:20px;
+    position:relative;
+    line-height:1.5;
+  }
+  .result-outcomes li::before{
+    content:"\2713";
+    position:absolute;
+    left:0;
+    color:var(--teal);
+    font-weight:600;
+  }
+  .result-altbox{
+    background:var(--navy-mid);
+    border-left:3px solid var(--muted);
+    border-radius:4px;
+    padding:16px 18px;
+  }
+  .result-altbox .alt-name{
+    font-weight:600;
+    font-size:0.97rem;
+    color:var(--text);
+    margin-bottom:5px;
+  }
+  .result-altbox p{
+    color:var(--muted);
+    font-size:0.92rem;
+    margin:0;
+    line-height:1.55;
+  }
+  .result-altbox.if-instead{
+    border-left-color:var(--teal);
+  }
+
+  .format-choice{
+    margin-top:28px;
+    padding-top:24px;
+    border-top:1px solid var(--hair);
+  }
+  .format-choice h4{
+    font-family:'Sora', sans-serif;
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+  .format-options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .format-option{
+    display:block;
+    text-decoration:none;
+    background:var(--navy-mid);
+    border:1px solid var(--hair);
+    border-radius:5px;
+    padding:16px 18px;
+    transition:border-color 0.15s;
+  }
+  .format-option:hover{border-color:var(--teal);}
+  .format-option:focus-visible{outline:2px solid var(--teal); outline-offset:2px;}
+  .format-option .fmt-name{
+    font-weight:600;
+    color:var(--teal-soft);
+    font-size:0.98rem;
+    margin-bottom:4px;
+  }
+  .format-option .fmt-desc{
+    color:var(--muted);
+    font-size:0.9rem;
+    line-height:1.45;
+  }
+
+  .compare-link{
+    margin-top:24px;
+    font-size:0.92rem;
+  }
+  .compare-link a{
+    color:var(--teal-soft);
+    text-decoration:underline;
+    text-underline-offset:3px;
+    cursor:pointer;
+  }
+  .compare-link a:hover{color:var(--teal);}
+  .compare-link a:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+  .compare-link span{color:var(--muted);}
+
+  .quiz-restart{
+    margin-top:26px;
+    background:none;
+    border:none;
+    color:var(--muted);
+    font-size:0.87rem;
+    cursor:pointer;
+    text-decoration:underline;
+    padding:0;
+    display:block;
+  }
+  .quiz-restart:hover{color:var(--teal-soft);}
+  .quiz-restart:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+
+  /* Paths */
+  .paths{
+    padding:56px 0 8px;
+  }
+  .paths-heading{
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--text);
+    margin-bottom:6px;
+  }
+  .path{
+    border-top:1px solid var(--hair);
+  }
+  .path summary{
+    cursor:pointer;
+    list-style:none;
+    padding:28px 0;
+  }
+  .path summary::-webkit-details-marker{display:none;}
+  .path summary::before{
+    content:"+ ";
+    color:var(--teal);
+  }
+  .path[open] summary::before{
+    content:"\2212 ";
+  }
+  .path summary:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+  }
+  .path-question{
+    display:inline;
+    font-family:'Sora', sans-serif;
+    font-weight:600;
+    font-size:1.25rem;
+    color:var(--teal-soft);
+  }
+  .path-body{
+    padding-bottom:32px;
+  }
+  .path-desc{
+    color:var(--muted);
+    font-size:0.96rem;
+    line-height:1.55;
+    max-width:56ch;
+    margin-bottom:20px;
+  }
+  .path-primary{
+    background:var(--navy-panel);
+    border-left:3px solid var(--teal);
+    border-radius:6px;
+    padding:20px 22px;
+    margin-bottom:14px;
+  }
+  .path-primary-label{
+    font-size:0.76rem;
+    font-weight:600;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:10px;
+  }
+  .path-primary-name{
+    font-weight:600;
+    font-size:1.08rem;
+    color:var(--text);
+    margin-bottom:6px;
+  }
+  .path-primary-why{
+    color:var(--muted);
+    font-size:0.93rem;
+    margin-bottom:16px;
+    line-height:1.55;
+  }
+  .path-cta{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .path-link{
+    text-decoration:none;
+    font-size:0.9rem;
+    color:var(--navy-deep);
+    background:var(--teal);
+    padding:9px 16px;
+    border-radius:4px;
+    font-weight:600;
+    min-height:34px;
+    display:inline-flex;
+    align-items:center;
+    transition:background 0.15s;
+  }
+  .path-link:hover{background:var(--teal-soft);}
+  .path-link:focus-visible{outline:2px solid var(--teal-soft); outline-offset:2px;}
+  .path-link.alt{
+    background:transparent;
+    color:var(--teal-soft);
+    border:1px solid var(--teal);
+  }
+  .path-link.alt:hover{background:rgba(49,201,182,0.12);}
+  .path-secondary{
+    color:var(--muted);
+    font-size:0.9rem;
+    line-height:1.55;
+  }
+  .path-secondary a{
+    color:var(--teal-soft);
+    text-decoration:underline;
+  }
+  .path-secondary a:focus-visible{outline:2px solid var(--teal); outline-offset:2px;}
+
+  /* Comparison accordions */
+  .compare{
+    padding:56px 0 8px;
+    border-top:1px solid var(--hair);
+  }
+  .compare h2{
+    font-size:1.3rem;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .compare-intro{
+    color:var(--muted);
+    font-size:0.96rem;
+    line-height:1.55;
+    max-width:56ch;
+    margin-bottom:26px;
+  }
+  details.compare-family{
+    border:1px solid var(--hair);
+    border-radius:6px;
+    margin-bottom:14px;
+    overflow:hidden;
+  }
+  details.compare-family summary{
+    cursor:pointer;
+    padding:18px 20px;
+    font-family:'Sora', sans-serif;
+    font-weight:600;
+    font-size:1.02rem;
+    color:var(--teal-soft);
+    background:var(--navy-panel);
+    list-style:none;
+  }
+  details.compare-family summary:focus-visible{outline:2px solid var(--teal); outline-offset:-2px;}
+  details.compare-family summary::-webkit-details-marker{display:none;}
+  details.compare-family summary::before{
+    content:"+ ";
+    color:var(--teal);
+  }
+  details.compare-family[open] summary::before{
+    content:"\2212 ";
+  }
+  .compare-scroll{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    padding:8px;
+  }
+  table.compare-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:760px;
+    font-size:0.94rem;
+  }
+  table.compare-table th,
+  table.compare-table td{
+    padding:16px 18px;
+    text-align:left;
+    border-bottom:1px solid var(--hair);
+    vertical-align:top;
+    line-height:1.5;
+  }
+  table.compare-table th{
+    font-family:'Sora', sans-serif;
+    font-weight:600;
+    font-size:0.92rem;
+    color:var(--text);
+    background:rgba(49,201,182,0.06);
+  }
+  table.compare-table th:first-child,
+  table.compare-table td:first-child{
+    color:var(--muted);
+    font-weight:500;
+    font-size:0.86rem;
+    white-space:nowrap;
+  }
+  table.compare-table td{color:var(--text);}
+  table.compare-table tr:last-child td{border-bottom:none;}
+  .compare-cta{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .compare-cta a{
+    text-decoration:none;
+    font-size:0.82rem;
+    font-weight:600;
+    text-align:center;
+    padding:7px 10px;
+    border-radius:4px;
+    white-space:nowrap;
+  }
+  .compare-cta a.sheets{
+    background:var(--teal);
+    color:var(--navy-deep);
+  }
+  .compare-cta a.sheets:hover{background:var(--teal-soft);}
+  .compare-cta a.browser{
+    background:transparent;
+    color:var(--teal-soft);
+    border:1px solid var(--teal);
+  }
+  .compare-cta a.browser:hover{background:rgba(49,201,182,0.12);}
+  .compare-cta a:focus-visible{outline:2px solid var(--teal-soft); outline-offset:2px;}
+  .compare-hint{
+    font-size:0.82rem;
+    color:var(--muted);
+    padding:10px 20px 4px;
+  }
+  @media (min-width:760px){
+    .compare-hint{display:none;}
+  }
+
+  /* Catalog / storefronts (de-emphasized) */
+  .catalog{
+    padding:48px 0 56px;
+    border-top:1px solid var(--hair);
+  }
+  .catalog h2{
+    font-size:1.02rem;
+    font-weight:600;
+    color:var(--muted);
+    margin-bottom:8px;
+  }
+  .catalog p{
+    color:var(--muted);
+    font-size:0.92rem;
+    line-height:1.5;
+    margin-bottom:16px;
+  }
+  .catalog-links{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .catalog-links a{
+    font-size:0.9rem;
+    color:var(--teal-soft);
+    text-decoration:none;
+    border-bottom:1px solid var(--hair);
+    padding-bottom:2px;
+  }
+  .catalog-links a:hover{border-bottom-color:var(--teal-soft);}
+  .catalog-links a:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+
+  footer{
+    border-top:1px solid var(--hair);
+    padding:28px 0 40px;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .footer-note{color:var(--muted); font-size:0.87rem;}
+  .footer-social{display:flex; gap:18px;}
+  .footer-social a{color:var(--muted); font-size:0.87rem; text-decoration:none;}
+  .footer-social a:hover{color:var(--teal-soft);}
+  .footer-social a:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+
+  /* Pending links (product not live / URL not yet supplied) */
+  .pending-link{
+    cursor:not-allowed;
+    opacity:0.6;
+  }
+  a.pending-link.path-link,
+  a.pending-link.product-link{
+    background:var(--navy-mid) !important;
+    color:var(--muted) !important;
+    border:1px dashed var(--muted);
+  }
+  a.pending-link.format-option{
+    border-style:dashed;
+  }
+  a.pending-link.format-option .fmt-name{
+    color:var(--muted);
+  }
+
+  @media (max-width:520px){
+    .hero{padding:40px 0 32px;}
+    .quiz-card{padding:24px 20px;}
+    .quiz-question{font-size:1.15rem;}
+    .path-primary{padding:16px 18px;}
+    .result-name{font-size:1.3rem;}
+  }
+</style>
+</head>
+<body bgcolor="#0a1826">
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="data:image/png;base64,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" alt="Madelara Systems logo">
+      <span class="brand-name">Madelara <span>Systems</span></span>
+    </div>
+    <a class="header-link" href="#catalog">Browse catalog</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Which tool do you actually need?</h1>
+    <p>We've built a lot of tools for a lot of different business problems, and some of them overlap. You don't need to study the whole catalog to find the right one.</p>
+    <div class="hero-rule"></div>
+    <div class="hero-ctas">
+      <a class="hero-cta-primary" href="#quiz" id="help-me-choose">Help me choose &rarr;</a>
+      <a class="hero-cta-secondary" href="#paths">I already know what I need &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<div class="no-need-line">
+  <div class="wrap" style="padding:0;">You don't need every tool. Start with the problem that's costing you the most time, money, or uncertainty.</div>
+</div>
+
+<section class="quiz" id="quiz" hidden>
+  <div class="wrap">
+    <div class="quiz-card">
+      <div class="quiz-progress" id="quiz-progress"></div>
+      <div id="quiz-body"></div>
+    </div>
+  </div>
+</section>
+
+<section class="paths" id="paths">
+  <div class="wrap">
+    <h2 class="paths-heading">Or start from a common situation</h2>
+
+    <details class="path">
+      <summary><h3 class="path-question">I'm just starting my business</h3></summary>
+      <div class="path-body">
+      <div class="path-desc">You need to know if you're pricing right and whether you'll have enough cash to get through the next few months, before you spend on anything complicated.</div>
+      <div class="path-primary">
+        <div class="path-primary-label">Start here</div>
+        <div class="path-primary-name">Cash Flow Planner &mdash; Lite</div>
+        <div class="path-primary-why">See where your money's going every month, with instant dashboard summaries and no accounting background needed.</div>
+        <div class="path-cta">
+          <a class="path-link" href="https://madelara.gumroad.com/l/CashFlowPlanner" data-fill="cash-flow-planner-lite-sheets-link">Excel &amp; Sheets</a>
+        </div>
+      </div>
+      <div class="path-secondary">Once you're ready to nail down your prices, add <a href="https://madelara.gumroad.com/l/SmartPricingCalculatorExcelGS">Smart Pricing Calculator</a>.</div>
+      </div>
+    </details>
+
+    <details class="path">
+      <summary><h3 class="path-question">I sell online and my books are a mess</h3></summary>
+      <div class="path-body">
+      <div class="path-desc">You're moving product but you can't tell what's actually profitable, or your stock counts never match what you thought you had.</div>
+      <div class="path-primary">
+        <div class="path-primary-label">Start here</div>
+        <div class="path-primary-name">Online Seller Ledger</div>
+        <div class="path-primary-why">See real profit per order and reconcile your payouts &mdash; built for sellers based in the Philippines. Selling mainly outside the Philippines? Ask about Multiplatform Bookkeeping instead.</div>
+        <div class="path-cta">
+          <a class="path-link" href="https://madelara.gumroad.com/l/OnlineSellerExcel" data-fill="online-seller-ledger-sheets-link">Excel &amp; Sheets</a>
+          <a class="path-link alt" href="https://madelara.gumroad.com/l/OnlineSellerBookkeeping" data-fill="online-seller-ledger-browser-link">Browser</a>
+        </div>
+      </div>
+      <div class="path-secondary">Need to track stock too? Add <a href="https://madelara.gumroad.com/l/InventoryExcelGS">Inventory Manager &mdash; Lite</a>.</div>
+      </div>
+    </details>
+
+    <details class="path">
+      <summary><h3 class="path-question">I need help with taxes and compliance</h3></summary>
+      <div class="path-body">
+      <div class="path-desc">BIR deadlines sneak up on you, or you're not sure your invoices meet the current EOPT rules, and getting it wrong is expensive. These solve two different problems &mdash; pick the one that matches yours.</div>
+      <div class="path-primary">
+        <div class="path-primary-label">If you need to track what you owe</div>
+        <div class="path-primary-name">BIR Tax Tracker</div>
+        <div class="path-primary-why">Track BIR tax owed and check if your current tax regime is still the right one.</div>
+        <div class="path-cta">
+          <a class="path-link" href="https://madelara.gumroad.com/l/BIRTaxPlanningExcel" data-fill="bir-tax-tracker-sheets-link">Excel &amp; Sheets</a>
+          <a class="path-link alt" href="https://madelara.gumroad.com/l/TaxPlanningBrowser" data-fill="bir-tax-tracker-browser-link">Browser</a>
+        </div>
+      </div>
+      <div class="path-primary">
+        <div class="path-primary-label">If you need compliant invoices</div>
+        <div class="path-primary-name">EOPT Invoice Tracker</div>
+        <div class="path-primary-why">Keep your invoices compliant with current EOPT rules.</div>
+        <div class="path-cta">
+          <a class="path-link" href="https://madelara.gumroad.com/l/EOPT" data-fill="eopt-tracker-sheets-link">Excel &amp; Sheets</a>
+          <a class="path-link alt" href="https://madelara.gumroad.com/l/EOPTComplianceInvoice" data-fill="eopt-tracker-browser-link">Browser</a>
+        </div>
+      </div>
+      </div>
+    </details>
+
+    <details class="path">
+      <summary><h3 class="path-question">I want to know if my business is actually healthy</h3></summary>
+      <div class="path-body">
+      <div class="path-desc">You're profitable on paper but you're not sure how healthy things really are, or where the weak spots are before they become real problems.</div>
+      <div class="path-primary">
+        <div class="path-primary-label">Start here</div>
+        <div class="path-primary-name">ProfitPath &mdash; Pro</div>
+        <div class="path-primary-why">A Business Health Score across 4 pillars, a 12-month tracker, and Best/Base/Worst forecasts. Browser swaps the tracker for an AI advisor and benchmark comparison.</div>
+        <div class="path-cta">
+          <a class="path-link" href="https://madelara.gumroad.com/l/ProfitPathProExcel" data-fill="profitpath-pro-sheets-link">Excel &amp; Sheets</a>
+          <a class="path-link alt" href="https://madelara.gumroad.com/l/ProfitPathProBrowser" data-fill="profitpath-pro-browser-link">Browser</a>
+        </div>
+      </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<section class="compare" id="compare">
+  <div class="wrap">
+    <h2>Still deciding between similar products?</h2>
+    <p class="compare-intro">A few categories have more than one product built for genuinely different needs. Open a category to see how they compare.</p>
+
+    <details class="compare-family" id="compare-cashflow">
+      <summary>Cash Flow &amp; Forecasting</summary>
+      <div class="compare-scroll">
+        <div class="compare-hint">Scroll sideways to see all columns →</div>
+        <table class="compare-table">
+          <tr>
+            <th></th>
+            <th>Cash Flow Planner &mdash; Lite</th>
+            <th>Cash Flow Planner &mdash; Pro</th>
+            <th>Cash Flow Simulator</th>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>Tracking monthly income &amp; expenses simply</td>
+            <td>Automated tracking plus ongoing forecasting</td>
+            <td>Testing what-if scenarios before a big decision</td>
+          </tr>
+          <tr>
+            <td>Key feature</td>
+            <td>Instant dashboard summaries</td>
+            <td>Scenario simulation, charts, category breakdown</td>
+            <td>4 preset scenarios, inflation modeling, 24+ month projections</td>
+          </tr>
+          <tr>
+            <td>Best if you&hellip;</td>
+            <td>are just starting out</td>
+            <td>want forecasting built into daily tracking</td>
+            <td>are deciding on a big purchase or expansion</td>
+          </tr>
+          <tr>
+            <td>Get it</td>
+            <td><div class="compare-cta">
+              <a class="sheets" href="https://madelara.gumroad.com/l/CashFlowPlanner">Excel &amp; Sheets</a>
+            </div></td>
+            <td><div class="compare-cta">
+              <a class="sheets" href="https://madelara.gumroad.com/l/CashFlowPlannerPro?layout=profile">Excel &amp; Sheets</a>
+              <a class="browser" href="https://madelara.gumroad.com/l/CashFlowPlannerWebEdition">Browser</a>
+            </div></td>
+            <td><div class="compare-cta">
+              <a class="sheets" href="https://madelara.gumroad.com/l/CashFlowSimulator">Excel &amp; Sheets</a>
+              <a class="browser" href="https://madelara.gumroad.com/l/CashFlowSimulatorBrowserEdition">Browser</a>
+            </div></td>
+          </tr>
+        </table>
+      </div>
+    </details>
+
+    <details class="compare-family" id="compare-pricing">
+      <summary>Pricing &amp; Profitability</summary>
+      <div class="compare-scroll">
+        <div class="compare-hint">Scroll sideways to see all columns →</div>
+        <table class="compare-table">
+          <tr>
+            <th></th>
+            <th>Smart Pricing Calculator</th>
+            <th>Profit Margin Calculator</th>
+            <th>Pricing Intelligence &mdash; Pro</th>
+            <th>ProfitPath &mdash; Pro</th>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>Setting a price for the first time</td>
+            <td>Checking if your margins are healthy</td>
+            <td>Comparing your prices to competitors</td>
+            <td>Checking overall business health</td>
+          </tr>
+          <tr>
+            <td>Key feature</td>
+            <td>Break-even point calculator</td>
+            <td>Margin analysis, weak-spot flags</td>
+            <td>Competitor tracking, Pricing Power Score, 18-industry benchmarks</td>
+            <td>Business Health Score across 4 pillars</td>
+          </tr>
+          <tr>
+            <td>Best if you&hellip;</td>
+            <td>don't have a price yet</td>
+            <td>have prices but aren't sure they're working</td>
+            <td>want to price strategically against competitors</td>
+            <td>want the big-picture financial checkup</td>
+          </tr>
+          <tr>
+            <td>Get it</td>
+            <td><div class="compare-cta">
+              <a class="sheets" href="https://madelara.gumroad.com/l/SmartPricingCalculatorExcelGS">Excel &amp; Sheets</a>
+              <a class="browser" href="https://madelara.gumroad.com/l/SmartPricingCalculator">Browser</a>
+            </div></td>
+            <td><div class="compare-cta">
+              <a class="sheets" href="https://madelara.gumroad.com/l/ProfitMarginCalculatorExcel">Excel &amp; Sheets</a>
+              <a class="browser" href="https://madelara.gumroad.com/l/ProfitMarginCalculatorBrowser">Browser</a>
+            </div></td>
+            <td><div class="compare-cta">
+              <a class="sheets" href="https://madelara.gumroad.com/l/PricingIntelExcel">Excel &amp; Sheets</a>
+              <a class="browser" href="https://madelara.gumroad.com/l/PricingIntelBrowser">Browser</a>
+            </div></td>
+            <td><div class="compare-cta">
+              <a class="sheets" href="https://madelara.gumroad.com/l/ProfitPathProExcel">Excel &amp; Sheets</a>
+              <a class="browser" href="https://madelara.gumroad.com/l/ProfitPathProBrowser">Browser</a>
+            </div></td>
+          </tr>
+        </table>
+      </div>
+    </details>
+
+    <details class="compare-family" id="compare-inventory">
+      <summary>Inventory</summary>
+      <div class="compare-scroll">
+        <div class="compare-hint">Scroll sideways to see all columns →</div>
+        <table class="compare-table">
+          <tr>
+            <th></th>
+            <th>Inventory Manager &mdash; Lite</th>
+            <th>Inventory Manager &mdash; Pro</th>
+          </tr>
+          <tr>
+            <td>Capacity</td>
+            <td>150 products, 1,200 movements</td>
+            <td>300 products, 3,000 movements</td>
+          </tr>
+          <tr>
+            <td>Key feature</td>
+            <td>Auto shopping list from logged deliveries &amp; sales</td>
+            <td>Supplier lead times, ABC ranking, expiry tracking, printable purchase orders</td>
+          </tr>
+          <tr>
+            <td>Best if you&hellip;</td>
+            <td>have a small, simple stock list</td>
+            <td>manage multiple suppliers or perishable stock</td>
+          </tr>
+          <tr>
+            <td>Get it</td>
+            <td><div class="compare-cta">
+              <a class="sheets" href="https://madelara.gumroad.com/l/InventoryExcelGS">Excel &amp; Sheets</a>
+              <a class="browser" href="https://madelara.gumroad.com/l/InventoryMgtBrowser">Browser</a>
+            </div></td>
+            <td><div class="compare-cta">
+              <a class="sheets" href="#" data-fill="inventory-manager-pro-sheets-link">Excel &amp; Sheets</a>
+              <a class="browser" href="#" data-fill="inventory-manager-pro-browser-link">Browser</a>
+            </div></td>
+          </tr>
+        </table>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<section class="catalog" id="catalog">
+  <div class="wrap">
+    <h2>Looking for something else?</h2>
+    <p>Payroll, project tracking, CRM, or a more advanced version of one of these &mdash; the full catalog is organized by tier across our storefronts.</p>
+    <div class="catalog-links">
+      <a href="https://madelara.gumroad.com" data-fill="gumroad-link">Browse the complete catalog on Gumroad &rarr;</a>
+    </div>
+    <div class="catalog-links" style="margin-top:12px;">
+      <a href="https://payhip.com/Madelara" data-fill="payhip-link">Payhip</a>
+      <a href="https://www.raket.ph/madelara" data-fill="raket-link">Raket.ph</a>
+      <a href="https://www.etsy.com/shop/Madelara" data-fill="etsy-link">Etsy</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="footer-note">Madelara Systems: practical tools for small business owners</span>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/madelara.systems" data-fill="facebook-page-link">Facebook</a>
+      <a href="https://www.instagram.com/madelarasystems/" data-fill="instagram-link">Instagram</a>
+      <a href="https://ph.pinterest.com/madelara_systems/" data-fill="pinterest-link">Pinterest</a>
+      <a href="https://www.linkedin.com/company/madelara-systems" data-fill="linkedin-link">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const quizSteps = {
+  start: {
+    question: "What's giving you the biggest headache right now?",
+    options: [
+      { label: "I don’t know where my cash is going", next: "cashflow" },
+      { label: "I'm not sure I'm pricing things right", next: "pricing" },
+      { label: "I need to stay on top of BIR taxes or invoicing rules", next: "tax" },
+      { label: "My sales records or profit tracking are a mess", next: "sales" },
+      { label: "I can’t keep track of my stock", next: "inventory" },
+      { label: "I need to calculate payroll", next: "payroll" },
+      { label: "I need to manage projects or clients", next: "ops" }
+    ]
+  },
+  cashflow: {
+    question: "What are you trying to do?",
+    options: [
+      { label: "I just want to understand and track my cash flow", result: "cfp-lite" },
+      { label: "I want to track cash flow and plan ahead", result: "cfp-pro" },
+      { label: "I'm considering a major decision and want to test what could happen", result: "cf-sim" }
+    ]
+  },
+  pricing: {
+    question: "What's the real problem?",
+    options: [
+      { label: "I don’t have a price set yet", result: "pricing-calc" },
+      { label: "I have prices, but I'm not sure my margins are healthy", result: "profit-margin" },
+      { label: "I want to see how I compare to competitors", result: "pricing-intel" },
+      { label: "I want to check my whole business's financial health", result: "profitpath" }
+    ]
+  },
+  tax: {
+    question: "What do you need to stay on top of?",
+    options: [
+      { label: "What I owe the BIR", result: "bir" },
+      { label: "Whether my invoices meet EOPT rules", result: "eopt" },
+      { label: "Both", result: "tax-both" }
+    ]
+  },
+  sales: {
+    question: "What's the actual problem?",
+    options: [
+      { label: "I can’t tell if I'm actually making money per order", next: "sales-location" },
+      { label: "I need to track who owes me, and who I owe", result: "arap" }
+    ]
+  },
+  "sales-location": {
+    question: "Where do you sell?",
+    options: [
+      { label: "Mainly in the Philippines (Shopee, Lazada, TikTok Shop)", result: "osl" },
+      { label: "Internationally (Amazon, eBay, Shopify, Etsy)", result: "multiplatform" }
+    ]
+  },
+  inventory: {
+    question: "What do you need from inventory tracking?",
+    options: [
+      { label: "Simple stock counts, with an automatic shopping list", result: "inv-lite" },
+      { label: "Supplier tracking, expiry dates, and purchase orders for a bigger stock list", result: "inv-pro" }
+    ]
+  },
+  payroll: {
+    question: "What do you need?",
+    options: [
+      { label: "Calculate hours and pay for the current period", result: "payroll-starter" },
+      { label: "Track leave, overtime banks, and totals across multiple pay periods", result: "smart-payroll" }
+    ]
+  },
+  ops: {
+    question: "What do you need to manage?",
+    options: [
+      { label: "Tasks and project timelines", result: "project-mgmt" },
+      { label: "Clients and my sales pipeline", result: "crm" }
+    ]
+  }
+};
+
+const quizResults = {
+  "cfp-lite": {
+    name: "Cash Flow Planner \u2014 Lite",
+    tagline: "Track monthly income & expenses with instant dashboard summaries. Beginner-friendly, no accountant needed.",
+    why: "You said you just want to understand and track your cash flow \u2014 that's exactly what this covers, without extra forecasting features you don’t need yet.",
+    outcomes: [
+      "See monthly income and expenses in one dashboard",
+      "Spot the month you’re most likely to run short",
+      "Start tracking without an accounting background"
+    ],
+    dontNeed: { name: "Cash Flow Planner \u2014 Pro", why: "Pro adds forecasting and scenario simulation. If you’re not planning ahead yet, Lite covers the basics without the extra sheets." },
+    ifInstead: { situation: "you also want to forecast a few months ahead as you track", name: "Cash Flow Planner \u2014 Pro" },
+    compareFamily: "cashflow",
+    sheets: "https://madelara.gumroad.com/l/CashFlowPlanner"
+  },
+  "cfp-pro": {
+    name: "Cash Flow Planner \u2014 Pro",
+    tagline: "Automate cash flow tracking, forecasting, and financial planning in one workbook.",
+    why: "You said you want to track cash flow and plan ahead \u2014 Pro builds forecasting into the same workbook you’re already tracking in.",
+    outcomes: [
+      "Automate cash flow tracking and forecasting in one workbook",
+      "See Scenario Simulation, charts, and category breakdowns (Browser)",
+      "Plan a few months ahead without switching tools"
+    ],
+    dontNeed: { name: "Cash Flow Simulator", why: "The Simulator is built for testing one big decision with multiple what-if scenarios, not day-to-day tracking. If you’re not weighing one big decision right now, Pro is the better fit." },
+    ifInstead: { situation: "you’re weighing a specific big decision (expansion, a major purchase) and want to test multiple outcomes", name: "Cash Flow Simulator" },
+    compareFamily: "cashflow",
+    sheets: "https://madelara.gumroad.com/l/CashFlowPlannerPro?layout=profile",
+    browser: "https://madelara.gumroad.com/l/CashFlowPlannerWebEdition"
+  },
+  "cf-sim": {
+    name: "Cash Flow Simulator",
+    tagline: "Test what-if scenarios before you decide \u2014 inflation modeling, preset scenarios, and 24+ month projections.",
+    why: "You said you’re considering a major decision and want to test what could happen \u2014 that's exactly what the Simulator is built for.",
+    outcomes: [
+      "Test Base, Conservative, Aggressive, and Recession scenarios",
+      "Model inflation and a safety-buffer runway countdown",
+      "Project 24+ months ahead before committing"
+    ],
+    dontNeed: { name: "Cash Flow Planner \u2014 Pro", why: "Pro is for ongoing monthly tracking with light forecasting. If you’re deciding on one specific move, the Simulator's scenario tools go deeper." },
+    ifInstead: { situation: "you just want ongoing monthly tracking rather than testing one specific decision", name: "Cash Flow Planner \u2014 Lite or Pro" },
+    compareFamily: "cashflow",
+    sheets: "https://madelara.gumroad.com/l/CashFlowSimulator",
+    browser: "https://madelara.gumroad.com/l/CashFlowSimulatorBrowserEdition"
+  },
+  "pricing-calc": {
+    name: "Smart Pricing Calculator",
+    tagline: "Find the right selling price, calculate profit margins, and know your break-even point.",
+    why: "You said you don’t have a price set yet \u2014 this is built to find your break-even point and a starting price, nothing more complicated than that.",
+    outcomes: [
+      "Find the right selling price for a product",
+      "Calculate profit margins as you go",
+      "Know your break-even point with confidence"
+    ],
+    dontNeed: { name: "Pricing Intelligence \u2014 Pro", why: "Pro is for comparing your price against competitors. If you don’t have a price yet, start simple and revisit competitor pricing later." },
+    ifInstead: { situation: "you already have prices and want to check them against competitors", name: "Pricing Intelligence \u2014 Pro" },
+    compareFamily: "pricing",
+    sheets: "https://madelara.gumroad.com/l/SmartPricingCalculatorExcelGS",
+    browser: "https://madelara.gumroad.com/l/SmartPricingCalculator"
+  },
+  "profit-margin": {
+    name: "Profit Margin Calculator",
+    tagline: "Analyze margins, identify weak spots, and improve profitability. Guided setup, no accounting background needed.",
+    why: "You said you have prices but aren’t sure your margins are healthy \u2014 this analyzes your existing prices and flags weak spots.",
+    outcomes: [
+      "Analyze margins across your products",
+      "Identify which items are quietly losing you money",
+      "Improve profitability with guided setup"
+    ],
+    dontNeed: { name: "ProfitPath \u2014 Pro", why: "ProfitPath looks at your whole business's health, not just per-product margins. If you’re focused on individual product pricing, this tool goes deep enough." },
+    ifInstead: { situation: "you want a full picture of your business's health, not just product margins", name: "ProfitPath \u2014 Pro" },
+    compareFamily: "pricing",
+    sheets: "https://madelara.gumroad.com/l/ProfitMarginCalculatorExcel",
+    browser: "https://madelara.gumroad.com/l/ProfitMarginCalculatorBrowser"
+  },
+  "pricing-intel": {
+    name: "Pricing Intelligence \u2014 Pro",
+    tagline: "Competitor price tracking, a Pricing Power Score, sensitivity analysis, and an 18-industry benchmark database.",
+    why: "You said you want to see how you compare to competitors \u2014 this tracks competitor pricing and gives you a blended recommendation.",
+    outcomes: [
+      "Track competitor prices over time",
+      "Get a Pricing Power Score and sensitivity analysis",
+      "See where you stand against 18 industry benchmarks"
+    ],
+    dontNeed: { name: "Smart Pricing Calculator", why: "The Smart Pricing Calculator is for setting a first price from scratch. If you already have prices and want competitive context, Pricing Intelligence goes further." },
+    ifInstead: { situation: "you don’t have a price set yet at all", name: "Smart Pricing Calculator" },
+    compareFamily: "pricing",
+    sheets: "https://madelara.gumroad.com/l/PricingIntelExcel",
+    browser: "https://madelara.gumroad.com/l/PricingIntelBrowser"
+  },
+  "profitpath": {
+    name: "ProfitPath \u2014 Pro",
+    tagline: "A Business Health Score across 4 pillars, a 12-month tracker, and Best/Base/Worst forecasts.",
+    why: "You said you want to check your whole business's financial health \u2014 this looks at the big picture, not just one number.",
+    outcomes: [
+      "Get a Business Health Score across 4 pillars",
+      "See a 12-month tracker with Best/Base/Worst forecasts",
+      "Get an AI advisor and benchmark comparison (Browser)"
+    ],
+    dontNeed: { name: "Profit Margin Calculator", why: "The Profit Margin Calculator looks at individual products. If you want the full-business view, ProfitPath is built for that instead." },
+    ifInstead: { situation: "you just want to check margins on specific products", name: "Profit Margin Calculator" },
+    compareFamily: "pricing",
+    sheets: "https://madelara.gumroad.com/l/ProfitPathProExcel",
+    browser: "https://madelara.gumroad.com/l/ProfitPathProBrowser"
+  },
+  "bir": {
+    name: "BIR Tax Tracker",
+    tagline: "Track what you owe the BIR before deadlines sneak up on you.",
+    why: "You said you need to stay on top of what you owe the BIR \u2014 this tracks it as you go and flags deadlines before they catch you off guard.",
+    outcomes: [
+      "Track BIR tax owed as you go",
+      "Check if your current tax regime is still the right one",
+      "Avoid last-minute deadline surprises"
+    ],
+    dontNeed: { name: "EOPT Invoice Tracker", why: "That one's about keeping your invoices compliant \u2014 a separate concern from tracking taxes owed. If invoicing compliance isn’t your issue right now, you don’t need it yet." },
+    ifInstead: { situation: "your real worry is whether your invoices meet current EOPT rules", name: "EOPT Invoice Tracker" },
+    sheets: "https://madelara.gumroad.com/l/BIRTaxPlanningExcel",
+    browser: "https://madelara.gumroad.com/l/TaxPlanningBrowser"
+  },
+  "eopt": {
+    name: "EOPT Invoice Tracker",
+    tagline: "Keep your invoices compliant with current EOPT rules.",
+    why: "You said you need your invoices to meet EOPT rules \u2014 this is built specifically around the current requirements.",
+    outcomes: [
+      "Keep invoices compliant with current EOPT rules",
+      "Avoid the most common compliance mistakes",
+      "Stay organized across a guided set of tracking sheets"
+    ],
+    dontNeed: { name: "BIR Tax Tracker", why: "That one tracks what you owe the BIR overall \u2014 a separate concern from invoice compliance. If deadlines and amounts owed aren’t your immediate worry, you don’t need it yet." },
+    ifInstead: { situation: "your real worry is tracking what you owe the BIR, not your invoices", name: "BIR Tax Tracker" },
+    sheets: "https://madelara.gumroad.com/l/EOPT",
+    browser: "https://madelara.gumroad.com/l/EOPTComplianceInvoice"
+  },
+  "tax-both": {
+    name: "BIR Tax Tracker + EOPT Invoice Tracker",
+    tagline: "Most sellers who need one of these eventually need the other \u2014 tax owed and invoice compliance are separate requirements.",
+    why: "You said you need to stay on top of both \u2014 tracking what you owe and keeping invoices compliant are two different jobs, so it's worth having both.",
+    both: [
+      { name: "BIR Tax Tracker", sheets: "https://madelara.gumroad.com/l/BIRTaxPlanningExcel", browser: "https://madelara.gumroad.com/l/TaxPlanningBrowser" },
+      { name: "EOPT Invoice Tracker", sheets: "https://madelara.gumroad.com/l/EOPT", browser: "https://madelara.gumroad.com/l/EOPTComplianceInvoice" }
+    ]
+  },
+  "osl": {
+    name: "Online Seller Ledger",
+    tagline: "Per-order sales log, payout reconciliation, and platform-by-platform profit comparison for Philippine sellers.",
+    why: "You said you can’t tell if you’re actually making money per order, and you sell mainly in the Philippines \u2014 this reconciles your payouts and shows profit by platform.",
+    outcomes: [
+      "See a per-order sales log with fees, COGS, shipping, and profit",
+      "Reconcile payouts against what platforms actually deposited",
+      "Compare profit across Shopee, Lazada, TikTok, and Facebook"
+    ],
+    dontNeed: { name: "Multiplatform Bookkeeping", why: "That's the international edition with no Philippine tax content. Since you’re selling locally, the PH edition already covers your tax tracking." },
+    ifInstead: { situation: "you sell mainly outside the Philippines", name: "Multiplatform Bookkeeping" },
+    sheets: "https://madelara.gumroad.com/l/OnlineSellerExcel",
+    browser: "https://madelara.gumroad.com/l/OnlineSellerBookkeeping"
+  },
+  "multiplatform": {
+    name: "Multiplatform Bookkeeping",
+    tagline: "The international edition \u2014 per-order sales tracking and payout reconciliation, no Philippine tax content.",
+    why: "You said you can’t tell if you’re actually making money per order, and you sell internationally \u2014 this has the same per-order tracking without any Philippine-specific tax content.",
+    outcomes: [
+      "See a per-order sales log with fees, COGS, shipping, and profit",
+      "Reconcile payouts against what platforms actually deposited",
+      "Compare profit across Amazon, eBay, Shopify, and Etsy"
+    ],
+    dontNeed: { name: "Online Seller Ledger", why: "That's the Philippine edition, built around BIR tax tracking that doesn’t apply outside the Philippines." },
+    ifInstead: { situation: "you sell mainly in the Philippines", name: "Online Seller Ledger" },
+    sheets: "#", browser: "#", sheetsId: "multiplatform-bookkeeping-sheets-link", browserId: "multiplatform-bookkeeping-browser-link"
+  },
+  "arap": {
+    name: "AR & AP Tracker",
+    tagline: "Track who owes you and who you owe in one place, with automatic aging.",
+    why: "You said you need to track who owes you and who you owe \u2014 that's receivables and payables, not sales tracking, so this is the direct fit.",
+    outcomes: [
+      "Log customer invoices and vendor bills in one place",
+      "See automatic aging at 30/60/90+ days",
+      "Get overdue flags before they become a cash problem"
+    ],
+    dontNeed: { name: "Online Seller Ledger or Multiplatform Bookkeeping", why: "Those track per-order sales profit, not outstanding balances. If your issue is who owes what, AR & AP is built for that specifically." },
+    ifInstead: { situation: "your issue is knowing your profit per sale, not who owes you money", name: "Online Seller Ledger (Philippines) or Multiplatform Bookkeeping (international)" },
+    sheets: "#", browser: "#", sheetsId: "ar-ap-tracker-sheets-link", browserId: "ar-ap-tracker-browser-link"
+  },
+  "inv-lite": {
+    name: "Inventory Manager \u2014 Lite",
+    tagline: "Log deliveries and sales \u2014 the shopping list writes itself. 150 products, 1,200 movements capacity.",
+    why: "You said you just need simple stock counts with an automatic shopping list \u2014 that's exactly what this covers, without extra supplier or expiry tracking.",
+    outcomes: [
+      "Log deliveries and sales without macros",
+      "Get an auto-generated shopping list",
+      "Track up to 150 products and 1,200 movements"
+    ],
+    dontNeed: { name: "Inventory Manager \u2014 Pro", why: "Pro adds supplier lead times, expiry tracking, and purchase orders. If your stock list is simple, Lite is enough." },
+    ifInstead: { situation: "you manage multiple suppliers or perishable stock", name: "Inventory Manager \u2014 Pro" },
+    compareFamily: "inventory",
+    sheets: "https://madelara.gumroad.com/l/InventoryExcelGS",
+    browser: "https://madelara.gumroad.com/l/InventoryMgtBrowser"
+  },
+  "inv-pro": {
+    name: "Inventory Manager \u2014 Pro",
+    tagline: "Supplier lead times, ABC ranking, expiry tracking, and printable purchase orders. 300 products, 3,000 movements.",
+    why: "You said you need supplier tracking, expiry dates, and purchase orders \u2014 that's a bigger job than Lite is built for.",
+    outcomes: [
+      "Track supplier lead times and ABC sell-through ranking",
+      "Get expiry tracking for perishable stock",
+      "Generate printable, supplier-grouped purchase orders"
+    ],
+    dontNeed: { name: "Inventory Manager \u2014 Lite", why: "Lite is built for a simple, single-supplier stock list. If you’re already juggling suppliers or expiry dates, Pro is worth the extra sheets." },
+    ifInstead: { situation: "your stock list is simple and you don’t manage multiple suppliers", name: "Inventory Manager \u2014 Lite" },
+    compareFamily: "inventory",
+    sheets: "#", browser: "#", sheetsId: "inventory-manager-pro-sheets-link", browserId: "inventory-manager-pro-browser-link"
+  },
+  "payroll-starter": {
+    name: "Payroll Starter",
+    tagline: "Hours logged \u00d7 rate, with user-defined overtime multipliers. No statutory deductions baked in \u2014 works anywhere.",
+    why: "You said you just need to calculate hours and pay for the current period \u2014 this covers exactly that, with no unnecessary complexity.",
+    outcomes: [
+      "Calculate hours logged times rate",
+      "Set your own overtime multipliers",
+      "Works anywhere \u2014 no statutory deductions baked in"
+    ],
+    dontNeed: { name: "Smart Payroll", why: "Smart Payroll adds leave accrual and multi-period tracking. If you just need one period's pay calculated, Starter is enough \u2014 and Smart Payroll isn’t live yet." },
+    ifInstead: { situation: "you need to track leave and overtime banks across multiple pay periods", name: "Smart Payroll (not yet live \u2014 Starter covers the essentials for now)" },
+    sheets: "#", browser: "#", sheetsId: "payroll-starter-sheets-link", browserId: "payroll-starter-browser-link"
+  },
+  "smart-payroll": {
+    name: "Smart Payroll",
+    tagline: "Adds leave accrual, YTD totals, and overtime banking across pay periods, on top of Payroll Starter’s core calculator.",
+    why: "You said you need to track leave, overtime banks, and totals across multiple pay periods \u2014 that's exactly what Smart Payroll is built for.",
+    notLive: true
+  },
+  "project-mgmt": {
+    name: "Project Management Tracker",
+    tagline: "Track tasks and project timelines. Works best in Google Sheets or Notion for real-time team collaboration.",
+    why: "You said you need to manage tasks and project timelines \u2014 this is built for exactly that.",
+    outcomes: [
+      "Track tasks and timelines in one place",
+      "Collaborate in real time via Google Sheets or Notion",
+      "Use the Browser edition solo if you’re a one-person team"
+    ],
+    dontNeed: { name: "CRM & Client Tracker", why: "That's for managing clients and your sales pipeline \u2014 a different job from tracking project tasks." },
+    ifInstead: { situation: "you need to manage clients and your sales pipeline instead", name: "CRM & Client Tracker" },
+    sheets: "#", browser: "#", sheetsId: "project-management-sheets-link", browserId: "project-management-browser-link"
+  },
+  "crm": {
+    name: "CRM & Client Tracker",
+    tagline: "Track clients and your sales pipeline in one place.",
+    why: "You said you need to manage clients and your sales pipeline \u2014 this keeps that separate from project task tracking.",
+    outcomes: [
+      "Track clients and where each one is in your pipeline",
+      "Keep client details in one place",
+      "Collaborate in real time via Google Sheets or Notion"
+    ],
+    dontNeed: { name: "Project Management Tracker", why: "That's for task and project timelines \u2014 a different job from tracking clients and sales." },
+    ifInstead: { situation: "you need to manage tasks and project timelines instead", name: "Project Management Tracker" },
+    sheets: "#", browser: "#", sheetsId: "crm-tracker-sheets-link", browserId: "crm-tracker-browser-link"
+  }
+};
+
+function markPendingLinks(root) {
+  const scope = root || document;
+  scope.querySelectorAll('a[data-fill][href="#"]').forEach(a => {
+    a.classList.add('pending-link');
+    a.setAttribute('aria-disabled', 'true');
+    a.title = 'Link coming soon';
+    a.addEventListener('click', function(e){ e.preventDefault(); });
+  });
+}
+
+let quizHistory = [];
+let currentStep = "start";
+
+function renderQuiz() {
+  const body = document.getElementById("quiz-body");
+  const progress = document.getElementById("quiz-progress");
+  const step = quizSteps[currentStep];
+
+  progress.textContent = "Question " + (quizHistory.length + 1);
+
+  let html = '<h3 class="quiz-question">' + step.question + '</h3><div class="quiz-options">';
+  step.options.forEach((opt, i) => {
+    html += '<button class="quiz-option" data-index="' + i + '">' + opt.label + '</button>';
+  });
+  html += '</div>';
+
+  if (quizHistory.length > 0) {
+    html += '<div class="quiz-nav"><button class="quiz-back" id="quiz-back-btn">&larr; Back</button></div>';
+  }
+
+  body.innerHTML = html;
+
+  body.querySelectorAll(".quiz-option").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const opt = step.options[parseInt(btn.getAttribute("data-index"))];
+      quizHistory.push(currentStep);
+      if (opt.next) {
+        currentStep = opt.next;
+        renderQuiz();
+      } else if (opt.result) {
+        renderResult(opt.result);
+      }
+    });
+  });
+
+  const backBtn = document.getElementById("quiz-back-btn");
+  if (backBtn) {
+    backBtn.addEventListener("click", () => {
+      currentStep = quizHistory.pop();
+      renderQuiz();
+    });
+  }
+}
+
+function openCompareFamily(familyKey) {
+  const el = document.getElementById("compare-" + familyKey);
+  if (!el) return;
+  el.setAttribute("open", "");
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function renderResult(key) {
+  const body = document.getElementById("quiz-body");
+  const progress = document.getElementById("quiz-progress");
+  const r = quizResults[key];
+  progress.textContent = "Your recommendation";
+
+  let html = '<div class="result-eyebrow">Your best match</div>';
+  html += '<h3 class="result-name">' + r.name + '</h3>';
+  html += '<div class="result-tagline">' + r.tagline + '</div>';
+
+  if (r.notLive) {
+    html += '<div class="result-block"><div class="result-why">' + r.why + ' This one isn\'t live yet, though \u2014 <a href="#" id="see-payroll-starter" style="color:var(--teal-soft); text-decoration:underline;">see Payroll Starter</a> for what\'s available now.</div></div>';
+  } else if (r.both) {
+    html += '<div class="result-block"><h4>Why we recommend it</h4><div class="result-why">' + r.why + '</div></div>';
+    html += '<div class="format-choice"><h4>Choose your format</h4>';
+    r.both.forEach(item => {
+      html += '<div style="margin-bottom:18px;"><div style="font-weight:600; color:var(--teal-soft); margin-bottom:8px;">' + item.name + '</div><div class="format-options">';
+      html += '<a class="format-option" href="' + item.sheets + '"><div class="fmt-name">Excel &amp; Sheets</div><div class="fmt-desc">Best if you’re comfortable working in spreadsheets and want the editable workbook.</div></a>';
+      html += '<a class="format-option" href="' + item.browser + '"><div class="fmt-name">Browser</div><div class="fmt-desc">Best if you want a ready-to-use guided interface.</div></a>';
+      html += '</div></div>';
+    });
+    html += '</div>';
+  } else {
+    html += '<div class="result-block"><h4>Why we recommend it</h4><div class="result-why">' + r.why + '</div></div>';
+
+    html += '<div class="result-block"><h4>That means you can</h4><ul class="result-outcomes">';
+    r.outcomes.forEach(o => { html += '<li>' + o + '</li>'; });
+    html += '</ul></div>';
+
+    html += '<div class="result-block"><h4>You probably don\'t need</h4><div class="result-altbox"><div class="alt-name">' + r.dontNeed.name + '</div><p>' + r.dontNeed.why + '</p></div></div>';
+
+    html += '<div class="result-block"><h4>If you\'re actually trying to&hellip;</h4><div class="result-altbox if-instead"><p>' + r.ifInstead.situation + ' &mdash; consider <strong>' + r.ifInstead.name + '</strong> instead.</p></div></div>';
+
+    html += '<div class="format-choice"><h4>Choose your format</h4><div class="format-options">';
+    if (r.sheets) {
+      html += '<a class="format-option" href="' + r.sheets + '"' + (r.sheetsId ? ' data-fill="' + r.sheetsId + '"' : '') + '><div class="fmt-name">Excel &amp; Sheets</div><div class="fmt-desc">Best if you\'re comfortable working in spreadsheets and want the editable workbook.</div></a>';
+    }
+    if (r.browser) {
+      html += '<a class="format-option" href="' + r.browser + '"' + (r.browserId ? ' data-fill="' + r.browserId + '"' : '') + '><div class="fmt-name">Browser</div><div class="fmt-desc">Best if you want a ready-to-use guided interface.</div></a>';
+    }
+    html += '</div></div>';
+
+    if (r.compareFamily) {
+      html += '<div class="compare-link"><span>Still not sure? </span><a id="compare-alt-link" data-family="' + r.compareFamily + '">Compare similar tools \u2193</a></div>';
+    }
+  }
+
+  html += '<button class="quiz-restart" id="quiz-restart-btn">Start over</button>';
+  body.innerHTML = html;
+  markPendingLinks(body);
+
+  document.getElementById("quiz-restart-btn").addEventListener("click", resetQuiz);
+
+  const compareLink = document.getElementById("compare-alt-link");
+  if (compareLink) {
+    compareLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      openCompareFamily(compareLink.getAttribute("data-family"));
+    });
+  }
+
+  const payrollLink = document.getElementById("see-payroll-starter");
+  if (payrollLink) {
+    payrollLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      renderResult("payroll-starter");
+    });
+  }
+}
+
+function resetQuiz() {
+  quizHistory = [];
+  currentStep = "start";
+  renderQuiz();
+}
+
+renderQuiz();
+markPendingLinks(document);
+
+const quizSection = document.getElementById("quiz");
+if (quizSection) {
+  document.querySelectorAll('a[href="#quiz"]').forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (quizSection.hasAttribute("hidden")) {
+        quizSection.removeAttribute("hidden");
+      }
+      quizSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      const firstOption = quizSection.querySelector(".quiz-option");
+      if (firstOption) firstOption.focus();
+    });
+  });
+}
+
+</script>
+</body>
+</html>
